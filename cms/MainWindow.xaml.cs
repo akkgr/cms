@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
+using cms.Views;
 
 namespace cms
 {
@@ -24,6 +25,27 @@ namespace cms
         public MainWindow()
         {
             InitializeComponent();
+
+            this.DataContext = new PeopleView();
+            this.Title = "Πελατες";
+        }
+
+        private void ViewPeople(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = new PeopleView();
+            this.Title = "Πελατες";
+        }
+
+        private void ViewJobs(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = new JobsView();
+            this.Title = "Εργασιες";
+        }
+
+        private void ViewCalendar(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = new PeopleView();
+            this.Title = "Εκκρεμοτητες";
         }
     }
 }

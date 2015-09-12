@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         GlowBrush="{DynamicResource AccentColorBrush}"
         WindowStartupLocation="CenterScreen"
-        Title="Αρχειο Πελατων" Height="600" Width="800">
+        Title="Πελατες - Εργασιες" Height="600" Width="800">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -18,32 +18,38 @@
         </ResourceDictionary>
     </Window.Resources>
 
-    <Grid>
-        <WrapPanel
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center">
-        <Controls:Tile
-            Title="Πελάτες"
-            Width="200" Height="200" TitleFontSize="12"
-            Background="Green">
-                <Grid Width="40"
-                          Background="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Controls:Tile}}}">
-                    <Grid.OpacityMask>
+    <Controls:MetroWindow.LeftWindowCommands>
+        <Controls:WindowCommands>
+            <Button ToolTip="Πελάτες" Click="ViewPeople">
+                <Rectangle Width="20" Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                    <Rectangle.OpacityMask>
                         <VisualBrush Stretch="Fill"
-                                         Visual="{DynamicResource appbar_user}" />
-                    </Grid.OpacityMask>
-                </Grid>
-            </Controls:Tile>
-        <Controls:Tile
-            Title="Εργασίες"
-            Width="200" Height="200" TitleFontSize="12"
-            Background="Green">
-        </Controls:Tile>
-        <Controls:Tile
-            Title="Εκκρεμότητες"
-            Width="200" Height="200" TitleFontSize="12"
-            Background="Green">
-        </Controls:Tile>
-        </WrapPanel>
-    </Grid>
+                         Visual="{StaticResource appbar_people_multiple}" />
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button>
+            <Button ToolTip="Εργασίες" Click="ViewJobs">
+                <Rectangle Width="20" Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Fill"
+                         Visual="{StaticResource appbar_tools}" />
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button>
+            <Button ToolTip="Εκκρεμότητες" Click="ViewCalendar">
+                <Rectangle Width="20" Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Fill"
+                         Visual="{StaticResource appbar_calendar}" />
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.LeftWindowCommands>
+
+    <ContentPresenter Content="{Binding}"/>
+    
 </Controls:MetroWindow>
