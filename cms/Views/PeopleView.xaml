@@ -3,9 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:cms.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             xmlns:local="clr-namespace:cms.Views">
 
     <UserControl.Resources>
         <ResourceDictionary>
@@ -17,11 +15,12 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="48"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="48"/>
+            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        <ToolBar Grid.Row="0">
+
+        <ToolBar>
             <Button ToolTip="Νέα Εγγραφή">
                 <Rectangle Width="20" Height="20"
                    Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
@@ -49,8 +48,36 @@
                     </Rectangle.OpacityMask>
                 </Rectangle>
             </Button>
+            <TextBox x:Name="SearchText" Margin="10,0,0,0" Width="200"></TextBox>
+            <Button ToolTip="Αναζήτηση" Margin="0,0,0,0" Click="find">
+                <Rectangle Width="20" Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Fill"
+                         Visual="{StaticResource appbar_magnify}" />
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button>
         </ToolBar>
-        <DataGrid x:Name="dataGrid" Grid.Row="1"/>
+
+        <DataGrid x:Name="dataGrid" Grid.Row="1" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Επωνυμο" CanUserSort="True" SortMemberPath="Lastname">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=Lastname}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Ονομα" CanUserSort="True" SortMemberPath="Firstname">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=Firstname}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
         <StatusBar Grid.Row="2"></StatusBar>
     </Grid>
 </UserControl>

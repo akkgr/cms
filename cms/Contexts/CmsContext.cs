@@ -12,7 +12,7 @@ namespace cms.Contexts
     {
         public CmsContext()
         {
-            Database.SetInitializer<CmsContext>(new CmsDBInitializer());
+            //Database.SetInitializer<CmsContext>(new CmsDBInitializer());
         }
 
         public DbSet<Person> People { get; set; }

@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using cms.Contexts;
 using cms.Models;
+using System.ComponentModel;
+using System.Collections.ObjectModel;
 
 namespace cms.Views
 {
@@ -27,9 +29,36 @@ namespace cms.Views
         public PeopleView()
         {
             InitializeComponent();
+
             db = new CmsContext();
 
-            this.dataGrid.ItemsSource = db.People.ToList();
+            var itemSourceList = new CollectionViewSource() { Source = db.People.ToList() };            
+            ICollectionView Itemlist = itemSourceList.View;
+            this.dataGrid.ItemsSource = Itemlist;
+        }
+
+        private void find(object sender, RoutedEventArgs e)
+        {
+            
+            var yourCostumFilter = new Predicate<object>(ComplexFilter);
+
+            ICollectionView itemlist = this.dataGrid.ItemsSource as ICollectionView;
+            
+            itemlist.Filter = yourCostumFilter;
+        }
+
+        private bool ComplexFilter(object obj)
+        {
+            string search = this.SearchText.Text;
+            var person = obj as Person;
+
+            if (person.Lastname.Contains(search))
+                return true;
+
+            if (person.Firstname.Contains(search))
+                return true;
+
+            return false;
         }
     }
 }
