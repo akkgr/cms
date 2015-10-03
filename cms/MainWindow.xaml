@@ -5,10 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:cms"
+        xmlns:ViewModels="clr-namespace:cms.ViewModels"
+        xmlns:Views="clr-namespace:cms.Views"
         mc:Ignorable="d"
         GlowBrush="{DynamicResource AccentColorBrush}"
         WindowStartupLocation="CenterScreen"
-        Title="Πελατες - Εργασιες" Height="600" Width="800">
+        Icon="Resources\agrsmdel.ico"
+        Title="{Binding ViewTitle}" Height="600" Width="800">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -20,7 +23,7 @@
 
     <Controls:MetroWindow.LeftWindowCommands>
         <Controls:WindowCommands>
-            <Button ToolTip="Πελάτες" Click="ViewPeople">
+            <Button ToolTip="Πελάτες" Command="{Binding OpenView}" CommandParameter="People">
                 <Rectangle Width="20" Height="20"
                    Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
                     <Rectangle.OpacityMask>
@@ -29,7 +32,7 @@
                     </Rectangle.OpacityMask>
                 </Rectangle>
             </Button>
-            <Button ToolTip="Εργασίες" Click="ViewJobs">
+            <Button ToolTip="Εργασίες" Command="{Binding OpenView}" CommandParameter="Jobs">
                 <Rectangle Width="20" Height="20"
                    Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
                     <Rectangle.OpacityMask>
@@ -38,7 +41,7 @@
                     </Rectangle.OpacityMask>
                 </Rectangle>
             </Button>
-            <Button ToolTip="Εκκρεμότητες" Click="ViewCalendar">
+            <Button ToolTip="Υπενθυμίσεις" Command="{Binding OpenView}" CommandParameter="ToDoes">
                 <Rectangle Width="20" Height="20"
                    Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
                     <Rectangle.OpacityMask>
@@ -49,7 +52,7 @@
             </Button>
         </Controls:WindowCommands>
     </Controls:MetroWindow.LeftWindowCommands>
-
-    <ContentPresenter Content="{Binding}"/>
+    
+    <ContentControl Content="{Binding ViewModel}"/>
     
 </Controls:MetroWindow>

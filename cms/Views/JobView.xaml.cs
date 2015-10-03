@@ -3,13 +3,13 @@
 namespace cms.Views
 {
     /// <summary>
-    /// Interaction logic for PeopleView.xaml
+    /// Interaction logic for PersonView.xaml
     /// </summary>
-    public partial class JobsView : UserControl   
+    public partial class JobView : UserControl
     {
-        public JobsView()
+        public JobView()
         {
             InitializeComponent();
-        }
+        }        
     }
 }
