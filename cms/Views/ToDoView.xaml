@@ -66,7 +66,7 @@
         </ComboBox>
         <TextBlock Grid.Column="0" Grid.Row="3" Margin="5">Ημερομηνία</TextBlock>
         <DatePicker Grid.Column="1" Grid.Row="3" Margin="5" SelectedDate="{Binding ToDo.ToDoDate}" />
-        <TextBlock Grid.Column="0" Grid.Row="4" Margin="5">Περιγραφή</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="4" Margin="5">Υπενθύμιση</TextBlock>
         <TextBox Grid.Column="1" Grid.Row="4" Margin="5" Text="{Binding ToDo.Description}" />
         <TextBlock Grid.Column="0" Grid.Row="5" Margin="5">Έγινε</TextBlock>
         <CheckBox Grid.Column="1" Grid.Row="5" Margin="5" IsChecked="{Binding ToDo.Done}" />

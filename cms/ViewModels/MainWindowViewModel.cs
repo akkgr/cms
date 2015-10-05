@@ -21,6 +21,22 @@ namespace cms.ViewModels
             }
         }
 
+        private ViewModelBase settingsViewModel;
+        public ViewModelBase SettingsViewModel
+        {
+            get
+            {
+                return settingsViewModel;
+            }
+
+            set
+            {
+                if (Equals(settingsViewModel, value)) return;
+                settingsViewModel = value;
+                OnPropertyChanged();
+            }
+        }
+
         private string viewTitle;
         public string ViewTitle
         {
@@ -33,6 +49,18 @@ namespace cms.ViewModels
             {
                 if (Equals(viewTitle, value)) return;
                 viewTitle = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool isSettingsFlyoutOpen;
+        public bool IsSettingsFlyoutOpen
+        {
+            get { return isSettingsFlyoutOpen; }
+            set
+            {
+                if (value.Equals(isSettingsFlyoutOpen)) return;
+                isSettingsFlyoutOpen = value;
                 OnPropertyChanged();
             }
         }

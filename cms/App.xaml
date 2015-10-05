@@ -32,6 +32,12 @@
             <DataTemplate DataType="{x:Type ViewModels:ToDoViewModel}">
                 <Views:ToDoView/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type ViewModels:JobFlyOutViewModel}">
+                <Views:JobFlyOutView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type ViewModels:ToDoFlyOutViewModel}">
+                <Views:ToDoFlyOutView/>
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

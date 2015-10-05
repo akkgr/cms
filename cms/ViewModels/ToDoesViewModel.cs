@@ -22,7 +22,7 @@ namespace cms.ViewModels
         public ToDoesViewModel(IDialogService dialogService, MainWindowViewModel mainWindowViewModel)
         {
             this.mainWindowViewModel = mainWindowViewModel;
-            mainWindowViewModel.ViewTitle = "Εκκρεμοτητες";
+            mainWindowViewModel.ViewTitle = "Υπενθυμισεις";
             this.dialogService = dialogService;
             db = new CmsContext();
 
@@ -158,7 +158,7 @@ namespace cms.ViewModels
                 string errorMessage = string.Empty;
                 try
                 {
-                    db.Todoes.Remove(selectedItem);
+                    db.ToDoes.Remove(selectedItem);
                     db.SaveChanges();
                     ToDoes.Remove(selectedItem);
                     SelectedItem = null;
@@ -178,7 +178,7 @@ namespace cms.ViewModels
         {
             TotalRows = await db.Jobs.CountAsync();
 
-            var items = await (from item in db.Todoes
+            var items = await (from item in db.ToDoes
                         where item.ToDoDate >= StartDate && item.ToDoDate <= EndDate
                         select item).ToListAsync();
 

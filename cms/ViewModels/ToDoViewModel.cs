@@ -46,11 +46,11 @@ namespace cms.ViewModels
                 this.ToDo.Id = Guid.NewGuid().ToString();
                 this.ToDo.ToDoDate = DateTime.Now.Date;
                 this.ToDo.Done = false;
-                db.Todoes.Add(this.ToDo);
+                db.ToDoes.Add(this.ToDo);
             }
             else
             {
-                this.ToDo = db.Todoes.Find(toDo.Id);
+                this.ToDo = db.ToDoes.Find(toDo.Id);
             }
         }
 

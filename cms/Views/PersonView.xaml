@@ -117,7 +117,7 @@
                             </Rectangle>
                         </Button>
                     </ToolBar>
-                    <DataGrid SelectionMode="Single" IsReadOnly="True" ItemsSource="{Binding Person.Jobs}"
+                    <DataGrid SelectionMode="Single" IsReadOnly="True" ItemsSource="{Binding Jobs}"
                   CanUserAddRows="False" CanUserDeleteRows="False"
                   Grid.Row="1" 
                   Width="Auto" ColumnWidth="Auto"
@@ -200,7 +200,7 @@
                             </Rectangle>
                         </Button>
                     </ToolBar>
-                    <DataGrid SelectionMode="Single" IsReadOnly="True" ItemsSource="{Binding Person.ToDoes}"
+                    <DataGrid SelectionMode="Single" IsReadOnly="True" ItemsSource="{Binding ToDoes}"
                   CanUserAddRows="False" CanUserDeleteRows="False"
                   Grid.Row="1" 
                   Width="Auto" ColumnWidth="Auto"

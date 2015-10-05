@@ -24,7 +24,7 @@ namespace cms.Contexts
 
         public DbSet<Person> People { get; set; }
         public DbSet<Job> Jobs { get; set; }
-        public DbSet<ToDo> Todoes { get; set; }
+        public DbSet<ToDo> ToDoes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

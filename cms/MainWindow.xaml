@@ -21,6 +21,21 @@
         </ResourceDictionary>
     </Window.Resources>
 
+
+    <Controls:MetroWindow.Flyouts>
+        <Controls:FlyoutsControl>
+            <Controls:Flyout
+                Position="Right"
+                AreAnimationsEnabled="True"
+                Theme="Inverse"
+                IsModal="True"                
+                IsOpen="{Binding IsSettingsFlyoutOpen, Mode=TwoWay}">
+                <ContentControl Content="{Binding SettingsViewModel}"></ContentControl>
+            </Controls:Flyout>
+        </Controls:FlyoutsControl>
+    </Controls:MetroWindow.Flyouts>
+
+
     <Controls:MetroWindow.LeftWindowCommands>
         <Controls:WindowCommands>
             <Button ToolTip="Πελάτες" Command="{Binding OpenView}" CommandParameter="People">
