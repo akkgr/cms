@@ -67,7 +67,7 @@
                 </Rectangle>
             </Button>
         </ToolBar>
-        <DataGrid x:Name="dataGrid" IsReadOnly="True" ItemsSource="{Binding ToDoes}"
+        <DataGrid SelectionMode="Single" IsReadOnly="True" ItemsSource="{Binding ToDoes}"
                   CanUserAddRows="False" CanUserDeleteRows="False"
                   Grid.Row="1" 
                   Width="Auto" ColumnWidth="Auto"

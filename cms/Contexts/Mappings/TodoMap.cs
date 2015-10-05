@@ -33,7 +33,7 @@ namespace cms.Contexts.Mappings
 
             // Relationships
             this.HasOptional(t => t.Person)
-                .WithMany(t => t.ToDos)
+                .WithMany(t => t.ToDoes)
                 .HasForeignKey(d => d.PersonId);
         }
     }

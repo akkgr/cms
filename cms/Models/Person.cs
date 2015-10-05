@@ -8,7 +8,7 @@ namespace cms.Models
         public Person()
         {
             Jobs = new List<Job>();
-            ToDos = new List<ToDo>();
+            ToDoes = new List<ToDo>();
 
             Validator = new PersonValidator();
         }
@@ -28,7 +28,7 @@ namespace cms.Models
         public string Email { get; set; }
         public string Remarks { get; set; }
         public virtual ICollection<Job> Jobs { get; set; }
-        public virtual ICollection<ToDo> ToDos { get; set; }
+        public virtual ICollection<ToDo> ToDoes { get; set; }
 
         public string SearchText
         {

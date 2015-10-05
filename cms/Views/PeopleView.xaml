@@ -64,13 +64,19 @@
             </Button>
         </ToolBar>
 
-        <DataGrid IsReadOnly="True" ItemsSource="{Binding People}"
+        <DataGrid SelectionMode="Single" IsReadOnly="True" ItemsSource="{Binding People}"
                   CanUserAddRows="False" CanUserDeleteRows="False"
                   Grid.Row="1" 
                   Width="Auto" ColumnWidth="Auto"
                   AutoGenerateColumns="False" 
                   SelectedItem="{Binding SelectedItem}">
-            
+
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <i:InvokeCommandAction Command="{Binding EditItem}" CommandParameter="{Binding SelectedItem}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="Επωνυμο" CanUserSort="True" SortMemberPath="Lastname">
                     <DataGridTemplateColumn.CellTemplate>

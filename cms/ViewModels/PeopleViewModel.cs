@@ -149,6 +149,7 @@ namespace cms.ViewModels
             People = new ObservableCollection<Person>(items.OrderByDescending(t=>t.FullName));
             Rows = People.Count;
         }
+        
     }
 }
   
